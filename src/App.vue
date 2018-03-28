@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" :class="{'pt': pt}">
     <router-view/>
 
     <mt-tabbar v-model="selected">
@@ -19,34 +19,44 @@
 <script>
   export default {
     name: 'App',
-    data() {
+    data () {
       return {
         selected: '1'
       }
     },
-    watch: {
-      selected(newVal, oldVal) {
-        if (newVal === '1') {
-          this.$router.push('/recommend')
+    computed: {
+      pt () {
+        if (/index/.test(this.$route.path) !== -1) {
+          return true
         } else {
-          this.$router.push('/my')
+          return false
+        }
+      }
+    },
+    watch: {
+      selected (newVal, oldVal) {
+        if (newVal === '1') {
+          this.$router.push('/indexRecommend')
+        } else {
+          this.$router.push('/indexMy')
         }
       }
     }
   }
 </script>
 
-<style>
-  #app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-    margin-top: 60px;
-  }
+<style lang="scss">
+  @import "./common/sass/index.scss";
 
+  .mint-tabbar{
+    position: fixed;
+    z-index:10000;
+  }
   .mint-tabbar > .mint-tab-item.is-selected {
     background: #fafafa;
+  }
+
+  .pt {
+    padding-bottom: 55px;
   }
 </style>

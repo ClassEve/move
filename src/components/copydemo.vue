@@ -1,5 +1,5 @@
 <template>
-  <div>推荐</div>
+  <div></div>
 </template>
 
 <script>
@@ -11,5 +11,5 @@
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style>
+<style lang="scss">
 </style>
