@@ -15,7 +15,7 @@
     </div>
     <div class="move-list">
       <ul>
-        <li class="move-item">
+        <li class="move-item" v-for="item in 20">
           <div class="left">
             <img src="./b1.jpg" alt="" height="120" width="100">
             <div class="move-info">
@@ -71,8 +71,29 @@
     .move-item{
       width: 100%;
       display: flex;
+      padding: 10px 0;
       justify-content: space-between;
       align-items: center;
+      border-bottom: 1px solid #ccc;
+      &:last-child{
+        border-bottom: none;
+      }
+      .left{
+        display: flex;
+        align-items: center;
+        .move-info{
+          margin-left: 10px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          height: 120px;
+
+        }
+      }
+      .right{
+        color: #ff4949;
+        font-size: 28px;
+      }
     }
   }
 
